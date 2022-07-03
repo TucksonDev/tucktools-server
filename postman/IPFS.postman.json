@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "20748e8d-fac0-41a2-8d43-bb95ab337432",
+		"name": "IPFS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21547704"
+	},
+	"item": [
+		{
+			"name": "Get CID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SRV_ROOT}}/ipfs/:cid",
+					"host": [
+						"{{SRV_ROOT}}"
+					],
+					"path": [
+						"ipfs",
+						":cid"
+					],
+					"variable": [
+						{
+							"key": "cid",
+							"value": "QmNX4RcxHERepnuTHtUK46Y3FNwr3zWNa1YXiuQ8DnKGNi"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nftName",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "nftDescription",
+							"value": "Test desc",
+							"type": "text"
+						},
+						{
+							"key": "fileBlob",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SRV_ROOT}}/ipfs",
+					"host": [
+						"{{SRV_ROOT}}"
+					],
+					"path": [
+						"ipfs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

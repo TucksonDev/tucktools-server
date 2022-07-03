@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "6b312771-afdc-45bf-8409-0dff378c3a10",
+		"name": "ETH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21547704"
+	},
+	"item": [
+		{
+			"name": "Get Transaction by Hash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SRV_ROOT}}/eth/transaction/:networkId/:hash",
+					"host": [
+						"{{SRV_ROOT}}"
+					],
+					"path": [
+						"eth",
+						"transaction",
+						":networkId",
+						":hash"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "4"
+						},
+						{
+							"key": "hash",
+							"value": "0x17a98955708a116c9d20c845bb1528e9ed922df50f2fdd992193e5d8eedc78f7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
