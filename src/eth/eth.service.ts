@@ -7,18 +7,16 @@ export class EthService {
     private ethClient: ethers.providers.AlchemyProvider;
 
     async initialize(networkId: number) {
-        if (!this.ethClient) {
-            const networkName = getNetworkFromId(networkId);
-            const alchemyApiKey = getAlchemyApiKeyFromNetworkId(networkId);
-            if (!networkName || !alchemyApiKey) {
-                throw new BadRequestException("Network ID is not valid");
-            }
-
-            this.ethClient = new ethers.providers.AlchemyProvider(
-                getNetworkFromId(networkId),
-                getAlchemyApiKeyFromNetworkId(networkId),
-            );
+        const networkName = getNetworkFromId(networkId);
+        const alchemyApiKey = getAlchemyApiKeyFromNetworkId(networkId);
+        if (!networkName || !alchemyApiKey) {
+            throw new BadRequestException("Network ID is not valid");
         }
+
+        this.ethClient = new ethers.providers.AlchemyProvider(
+            networkName,
+            alchemyApiKey,
+        );
     }
 
     async findTransaction(hash: string): Promise<any> {
