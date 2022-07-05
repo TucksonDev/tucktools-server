@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { ethers } from 'ethers';
-import { getNetworkFromId, getAlchemyApiKeyFromNetworkId } from '../helpers/blockchain.helper';
+import { getNetworkFromId, getAlchemyApiKeyFromNetworkId } from '../common/helper/blockchain.helper';
 
 @Injectable()
 export class EthService {

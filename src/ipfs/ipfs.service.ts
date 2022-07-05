@@ -1,6 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
-import { IpfsFile } from './interfaces/ipfs-file.interface';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { create, IPFSHTTPClient } from 'ipfs-http-client';
+import { IpfsFile } from './interfaces/ipfs-file.interface';
+
 
 // Is this right here?
 const IPFS_BASE_URL = 'ipfs://';
@@ -9,11 +11,11 @@ const IPFS_BASE_URL = 'ipfs://';
 export class IpfsService {
     private ipfsClient: IPFSHTTPClient;
 
-    constructor() {
+    constructor(private configService: ConfigService) {
         this.ipfsClient = create({
-            protocol: process.env.IPFS_GATEWAY_PROTOCOL,
-            host: process.env.IPFS_GATEWAY_HOST,
-            port: Number(process.env.IPFS_GATEWAY_PORT)
+            protocol: this.configService.get('IPFS_GATEWAY_PROTOCOL'),
+            host: this.configService.get('IPFS_GATEWAY_HOST'),
+            port: Number(this.configService.get('IPFS_GATEWAY_PORT'))
         });
     }
 

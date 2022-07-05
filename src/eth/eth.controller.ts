@@ -1,6 +1,6 @@
 import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
 import { ethers } from 'ethers';
-import { networkIsValid } from 'src/helpers/blockchain.helper';
+import { networkIsValid } from 'src/common/helper/blockchain.helper';
 import { GetEthTransactionDto } from './dto/get-eth-transaction.dto';
 import { EthService } from './eth.service';
 

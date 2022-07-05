@@ -16,6 +16,8 @@ These tools have been created to demonstrate my technical skills. They have all 
 - Base technologies for this project are: NestJS + Typescript, using the standard NestJS scaffolding tool. More info [here](https://docs.nestjs.com/).
 - To handle blockchain operations, the project uses ethers through an Alchemy node. For now, only mainnet and rinkeby are supported.
 - IPFS is accessed through the official library ipfs-http-client.
+- You may have a .env, development.env and a production.env file in `src/common/env` folder. `.env` will act as the final fallback in case neither production or development are found. You can see the format for those files in `src/common/env/.env.example`.
+- This API does not have any authentication module. For now it is intended to be accessed from the same machine as the frontend. As both ends develop, it is expected to have its own machine and use some authentication method to be accessed.
 
 # CLI instructions
 - `npm install` : To install all dependencies

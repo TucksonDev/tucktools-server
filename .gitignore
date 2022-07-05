@@ -35,7 +35,7 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # Env files
-.env
+*.env
 
 # Custom files
 Notes.md

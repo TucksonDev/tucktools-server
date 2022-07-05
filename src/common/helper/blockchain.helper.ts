@@ -1,3 +1,5 @@
+import { ConfigService } from '@nestjs/config';
+const configService = new ConfigService();
 
 // EVM Networks
 export enum Networks {
@@ -25,8 +27,8 @@ export const getAlchemyApiKeyFromNetworkId = (networkId: number) : string => {
     let apiKey = null;
 
     switch (networkId) {
-        case Networks.ETH_MAINNET: apiKey = process.env.ETH_ALCHEMY_RINKEBY_APIKEY; break;
-        case Networks.ETH_RINKEBY: apiKey = process.env.ETH_ALCHEMY_MAINNET_APIKEY; break;
+        case Networks.ETH_MAINNET: apiKey = configService.get('ETH_ALCHEMY_RINKEBY_APIKEY'); break;
+        case Networks.ETH_RINKEBY: apiKey = configService.get('ETH_ALCHEMY_MAINNET_APIKEY'); break;
     }
 
     return apiKey;
