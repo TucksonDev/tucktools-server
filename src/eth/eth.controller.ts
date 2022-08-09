@@ -1,14 +1,14 @@
-import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
-import { ethers } from 'ethers';
-import { networkIsValid } from 'src/common/helper/blockchain.helper';
-import { GetEthTransactionDto } from './dto/get-eth-transaction.dto';
-import { EthService } from './eth.service';
+import { BadRequestException, Controller, Get, Param } from "@nestjs/common";
+import { ethers } from "ethers";
+import { networkIsValid } from "src/common/helper/blockchain.helper";
+import { GetEthTransactionDto } from "./dto/get-eth-transaction.dto";
+import { EthService } from "./eth.service";
 
-@Controller('eth')
+@Controller("eth")
 export class EthController {
     constructor(private ethService: EthService) {}
 
-    @Get('transaction/:networkId/:hash')
+    @Get("transaction/:networkId/:hash")
     async transaction(@Param() params: GetEthTransactionDto): Promise<any> {
         const networkId = Number(params.networkId);
         if (!networkId || !networkIsValid(networkId)) {

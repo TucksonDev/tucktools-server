@@ -1,6 +1,6 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { ethers } from 'ethers';
-import { getNetworkFromId, getAlchemyApiKeyFromNetworkId } from '../common/helper/blockchain.helper';
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { ethers } from "ethers";
+import { getNetworkFromId, getAlchemyApiKeyFromNetworkId } from "../common/helper/blockchain.helper";
 
 @Injectable()
 export class EthService {
@@ -13,10 +13,7 @@ export class EthService {
             throw new BadRequestException("Network ID is not valid");
         }
 
-        this.ethClient = new ethers.providers.AlchemyProvider(
-            networkName,
-            alchemyApiKey,
-        );
+        this.ethClient = new ethers.providers.AlchemyProvider(networkName, alchemyApiKey);
     }
 
     async findTransaction(hash: string): Promise<any> {
