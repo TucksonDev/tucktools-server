@@ -23,6 +23,8 @@ These tools have been created to demonstrate my technical skills. They have all 
 - `npm install` : To install all dependencies
 - `npm run start:dev` : To initialize the web server daemon for development
 - `npm run start:prod` : To initialize the web server daemon in production mode
+- `npm run lint` : To view linting and formatting problems on the project
+- `npm run lint:fix` : To fix linting and formatting problems on the project
 - `npm run build` : To generate and pack production files
 
 # References
