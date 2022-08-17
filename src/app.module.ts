@@ -12,6 +12,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/env`);
     imports: [
         ConfigModule.forRoot({
             envFilePath,
+            ignoreEnvFile: process.env.NODE_ENV === "production",
             isGlobal: true,
         }),
     ],
