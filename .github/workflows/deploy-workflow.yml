@@ -12,8 +12,10 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                 node-version: '16'
+            - name: Update dependencies
+              run: sudo apt-get update -q
             - name: Install zip package
-              run: apt-get install -y zip unzip
+              run: sudo apt-get install -y zip unzip
             - name: Caching Vue3
               id: nestjs-cache-build
               uses: actions/cache@v3
