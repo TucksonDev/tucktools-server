@@ -1,1 +1,1 @@
-web: npm run deploy
+web: npm ci --omit=dev && node main.js > out.log
