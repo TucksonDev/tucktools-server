@@ -40,4 +40,4 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-region: eu-west-2
             - name: Deploy to S3
-              run: aws s3 sync tucktools-back.zip s3://tucktools-site-back
+              run: aws s3 sync . s3://tucktools-site-back --exclude='*' --include='tucktools-back.zip'
