@@ -4,7 +4,7 @@ const configService = new ConfigService();
 // EVM Networks
 export enum Networks {
     ETH_MAINNET = 1,
-    ETH_RINKEBY = 4,
+    ETH_GOERLI = 5,
 }
 
 export const networkIsValid = (networkId: number): boolean => {
@@ -19,8 +19,8 @@ export const getNetworkFromId = (networkId: number): string => {
         case Networks.ETH_MAINNET:
             network = "homestead";
             break;
-        case Networks.ETH_RINKEBY:
-            network = "rinkeby";
+        case Networks.ETH_GOERLI:
+            network = "goerli";
             break;
     }
 
@@ -34,8 +34,8 @@ export const getAlchemyApiKeyFromNetworkId = (networkId: number): string => {
         case Networks.ETH_MAINNET:
             apiKey = configService.get("ETH_ALCHEMY_MAINNET_APIKEY");
             break;
-        case Networks.ETH_RINKEBY:
-            apiKey = configService.get("ETH_ALCHEMY_RINKEBY_APIKEY");
+        case Networks.ETH_GOERLI:
+            apiKey = configService.get("ETH_ALCHEMY_GOERLI_APIKEY");
             break;
     }
 
