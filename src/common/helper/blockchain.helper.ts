@@ -5,6 +5,7 @@ const configService = new ConfigService();
 export enum Networks {
     ETH_MAINNET = 1,
     ETH_GOERLI = 5,
+    POLYGON_MAINNET = 137,
 }
 
 export const networkIsValid = (networkId: number): boolean => {
@@ -22,6 +23,8 @@ export const getNetworkFromId = (networkId: number): string => {
         case Networks.ETH_GOERLI:
             network = "goerli";
             break;
+        case Networks.POLYGON_MAINNET:
+            network = "matic";
     }
 
     return network;
@@ -36,6 +39,9 @@ export const getAlchemyApiKeyFromNetworkId = (networkId: number): string => {
             break;
         case Networks.ETH_GOERLI:
             apiKey = configService.get("ETH_ALCHEMY_GOERLI_APIKEY");
+            break;
+        case Networks.POLYGON_MAINNET:
+            apiKey = configService.get("POLYGON_ALCHEMY_MAINNET_APIKEY");
             break;
     }
 
